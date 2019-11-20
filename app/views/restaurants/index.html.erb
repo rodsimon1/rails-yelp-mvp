@@ -1,0 +1,9 @@
+<h1>Restaurants index</h1>
+
+<% @restaurants.each do |restaurant| %>
+<p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+<% end %>
+
+<hr>
+
+<p> <i class="fas fa-plus"> <%= link_to 'Add a new restaurant', '/restaurants/new', class: 'btn btn-primary' %> </i> </p>
