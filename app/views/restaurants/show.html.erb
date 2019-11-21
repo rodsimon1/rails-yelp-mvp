@@ -8,15 +8,20 @@
 
 <div class="review-div">
   <h4>Reviews</h4>
+
   <ul>
     <% @restaurant.reviews.each do |review| %>
       <li> <%= review.content %> </li>
-      <p> <strong> <%= review.rating %></strong> <i class="far fa-star"></i> </p>
+      <p><% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+          <% end %> </p>
     <% end %>
-
-
   </ul>
+
 </div>
 
-<p><i class="fas fa-plus"><%= link_to 'Add a review!', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %></i></p>
+<p><i class="fas fa-plus"></i><%= link_to 'Add a review!', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %></p>
 <p><i class="fas fa-undo-alt"><%= link_to 'Back to list', restaurants_path, class: 'btn btn-primary' %></i></p>
